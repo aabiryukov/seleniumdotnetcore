@@ -8,9 +8,9 @@ Note:
 
 Steps:
 
-Step 1:Get the Docker image : devpassis/seleniumdotnetcore:latest. type the command below:
+Step 1:Get the Docker image : aabiryukov/seleniumdotnetcore:latest. type the command below:
 
-docker pull devpassis/seleniumdotnetcore
+docker pull aabiryukov/seleniumdotnetcore
 
 Step 2: Run the conteiner with a share path that must existe a VsCode projet:
 
@@ -67,7 +67,7 @@ namespace VSCode {
     public void SetupTest()
     {                   
         //Configuration to Windows
-        //  String driverPath = @"D:\Projetos\VsCode\SeleniumDotNetCore\bin\Debug\netcoreapp2.1";
+        //  String driverPath = @"D:\Projetos\VsCode\SeleniumDotNetCore\bin\Debug\netcoreapp2.2";
         //  String driverExecutableFileName = "chromedriver.exe";         
         //  ChromeOptions options = new ChromeOptions();
         //  options.AddArguments("window-size=1200x600");      

@@ -1,9 +1,7 @@
-FROM microsoft/dotnet:2.1.302-sdk-stretch
-# This code was based in Dockerfile from Jessie Frazelle <jess@linux.com> to Install Chrome. Thanks you.
+FROM microsoft/dotnet:2.2-sdk
+# This code was based in Dockerfile from Pablo Assis <desenvolvedor.pabloassis@gmail.com> (devpassis/seleniumdotnetcore). Thanks you.
 # Base docker image
-LABEL maintainer "Pablo Assis <desenvolvedor.pabloassis@gmail.com>"
-
-ADD https://dl.google.com/linux/direct/google-talkplugin_current_amd64.deb /src/google-talkplugin_current_amd64.deb
+LABEL maintainer "Alexander Biryukov <aabiryukov@gmail.com>"
 
 # Install Chrome
 RUN apt-get update && apt-get install -y \
@@ -38,10 +36,11 @@ unzip \
 && rm -rf /var/lib/apt/lists/* \
 && curl -sSL "https://dl.google.com/linux/direct/google-talkplugin_current_amd64.deb" -o /tmp/google-talkplugin-amd64.deb \
 && dpkg -i /tmp/google-talkplugin-amd64.deb \
-&& mkdir \opt\selenium \
-&& curl -sSL "https://chromedriver.storage.googleapis.com/2.40/chromedriver_linux64.zip" -o /tmp/chromedriver.zip \
-&& unzip -o /tmp/chromedriver -d /opt/selenium/ \
 && rm -rf /tmp/*.deb \
+&& mkdir \opt\selenium \
+&& curl -sSL "https://chromedriver.storage.googleapis.com/2.45/chromedriver_linux64.zip" -o /tmp/chromedriver.zip \
+&& unzip -o /tmp/chromedriver -d /opt/selenium/ \
+&& rm -rf /tmp/*.zip \
 && apt-get purge -y --auto-remove curl unzip
 
 # Add chrome user
